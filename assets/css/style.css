@@ -8,7 +8,8 @@ body {
 #game-area {
     display: flex;
     flex-wrap: wrap;
-    max-width: 550px;
+    justify-content: center;
+    max-width: 750px;
     background: #fff;
     border: 1px solid rgba(0,0,0,0.2);
 }
@@ -16,6 +17,7 @@ body {
 .card {
     background: url('../img/q-mark.png') no-repeat center;
     background-size: 80%;
+    margin: 1rem;
 }
 
 .hidden {
