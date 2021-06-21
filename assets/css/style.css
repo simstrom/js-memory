@@ -20,6 +20,10 @@ h2 {
     color: cadetblue;
 }
 
+.failed {
+    color: crimson;
+}
+
 #game-area {
     display: flex;
     flex-wrap: wrap;

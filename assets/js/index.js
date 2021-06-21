@@ -5,7 +5,7 @@ let clickable = true;
 let gameArea;
 let openCard;
 let numberOfTries = 0;
-let tries = document.querySelector('.tries');
+let tries = document.querySelector(".tries");
 
 addEventListener("load", main);
 
@@ -42,6 +42,15 @@ function cardClick(event) {
 function increaseTries() {
     numberOfTries++;
     tries.innerHTML = numberOfTries;
+    if (numberOfTries == 20) {
+        tries.classList.add('failed');
+        setTimeout(function () {
+            numberOfTries = 0;
+            tries.innerHTML = numberOfTries;
+            tries.classList.remove('failed')
+            resetGame();
+        }, 1000);
+    }
 }
 
 function createGameArea() {
@@ -61,4 +70,16 @@ function createGameArea() {
         gameArea.appendChild(card);
         card.appendChild(img);
     }
+}
+
+function resetGame() {
+    let cards = document.querySelectorAll(".card");
+    let gameArea = document.querySelector("#game-area");
+    cards.forEach((element) => {
+        gameArea.removeChild(element);
+    });
+
+    cars = cars.slice(0, 10);
+    console.log(cars);
+    createGameArea();
 }
