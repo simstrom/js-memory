@@ -4,6 +4,8 @@ let cars = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 let clickable = true;
 let gameArea;
 let openCard;
+let numberOfTries = 0;
+let tries = document.querySelector('.tries');
 
 addEventListener("load", main);
 
@@ -24,6 +26,7 @@ function cardClick(event) {
         openCard = TARGET;
     } else if (openCard.src != TARGET.src) {
         clickable = false;
+        increaseTries();
         setTimeout(function () {
             openCard.classList.add("hidden");
             TARGET.classList.add("hidden");
@@ -32,7 +35,13 @@ function cardClick(event) {
         }, 1000);
     } else {
         openCard = undefined;
+        increaseTries();
     }
+}
+
+function increaseTries() {
+    numberOfTries++;
+    tries.innerHTML = numberOfTries;
 }
 
 function createGameArea() {

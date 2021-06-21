@@ -1,8 +1,23 @@
 body {
     background: #eee;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 3rem;
+    margin-top: 0;
+}
+
+.tries {
+    color: cadetblue;
 }
 
 #game-area {
