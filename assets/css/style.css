@@ -20,8 +20,12 @@ h2 {
     color: cadetblue;
 }
 
-.failed {
+.red {
     color: crimson;
+}
+
+.green {
+    color: lightgreen;
 }
 
 #game-area {
@@ -37,8 +41,14 @@ h2 {
     background: url('../img/q-mark.png') no-repeat center;
     background-size: 80%;
     margin: 1rem;
+    perspective: 1000px;
 }
 
 .hidden {
     opacity: 0;
+    transform: rotateY(180deg);
+}
+
+img {
+    transition: all 500ms cubic-bezier(0.075, 0.82, 0.165, 1);
 }
