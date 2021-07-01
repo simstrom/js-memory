@@ -45,13 +45,7 @@ function increaseTries() {
     numberOfTries++;
     tries.innerHTML = numberOfTries;
     if (numberOfTries == 30) {
-        tries.classList.add('red');
-        setTimeout(function () {
-            numberOfTries = 0;
-            tries.innerHTML = numberOfTries;
-            tries.classList.remove('red');
-            resetGame();
-        }, 1000);
+        displayGameOver();
     }
 }
 
@@ -99,16 +93,26 @@ function displayWin() {
     }, 3000);
 }
 
+function displayGameOver() {
+    let gameOverMessage = document.querySelector('h2');
+    gameOverMessage.innerHTML = 'GAME OVER!';
+    gameOverMessage.classList.add('red');
+    setTimeout(() => {
+        resetGame();
+    }, 3000);
+}
+
 function resetGame() {
     let cards = document.querySelectorAll('.card');
     let gameArea = document.querySelector('#game-area');
     let h2 = document.querySelector('h2');
     h2.innerHTML = `Number of Tries: <span class="tries">0</span>`;
-    h2.classList.remove('green');
+    h2.classList.remove('green', 'red');
     cards.forEach((element) => {
         gameArea.removeChild(element);
     });
 
+    numberOfTries = 0;
     cars = cars = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     createGameArea();
 }
