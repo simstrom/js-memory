@@ -27,6 +27,12 @@ function cardClick(event) {
     } else if (openCard.src != TARGET.src) {
         clickable = false;
         increaseTries();
+        TARGET.classList.add('red');
+        openCard.classList.add('red');
+        setTimeout(() => {
+            openCard.classList.remove('red');
+            TARGET.classList.remove('red');
+        }, 200);
         setTimeout(function () {
             openCard.classList.add('hidden');
             TARGET.classList.add('hidden');
@@ -35,8 +41,15 @@ function cardClick(event) {
         }, 1000);
         checkWin();
     } else {
-        openCard = undefined;
         increaseTries();
+        TARGET.classList.add('green');
+        openCard.classList.add('green');
+        setTimeout(() => {
+            openCard.classList.remove('green');
+            TARGET.classList.remove('green');
+            openCard = undefined;
+        }, 200);
+        
         checkWin();
     }
 }
